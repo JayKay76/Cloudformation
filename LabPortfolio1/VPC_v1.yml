@@ -1,4 +1,4 @@
-Description: This template creates a vpc with an Internet Gateway
+Description: This template creates a vpc with an Internet Gateway, with Public and Private Subnets
 
 Resources:
   VPC:
@@ -20,3 +20,25 @@ Resources:
     Properties:
       InternetGatewayId: !Ref InternetGateway
       VpcId: !Ref VPC
+      
+    PublicSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      AvailabilityZone: !Sub 
+      - ${AWS::Region}${AZ}
+      - AZ: !Select 
+          - 0
+          - !Ref VpcAvailabilityZone
+      CidrBlock: 10.0.1.0/24
+
+    PrivateSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      AvailabilityZone: !Sub 
+      - ${AWS::Region}${AZ}
+      - AZ: !Select 
+          - 0
+          - !Ref VpcAvailabilityZone
+      CidrBlock: 10.0.10.0/24
