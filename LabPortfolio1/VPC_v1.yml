@@ -42,3 +42,14 @@ Resources:
           - 0
           - !Ref VpcAvailabilityZone
       CidrBlock: 10.0.10.0/24
+      
+    PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC
+
+    RouteToPublic:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      SubnetId: !Ref PublicSubnet
