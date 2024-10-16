@@ -1,4 +1,6 @@
 Description: This template creates a vpc with an Internet Gateway, with Public and Private Subnets
+# Added Public Route, PublicRouteTable and SecurityGroup
+
 
 Resources:
   VPC:
