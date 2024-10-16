@@ -1,0 +1,9 @@
+Description: This template creates a vpc
+
+Resources:
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties: 
+      Tags:
+        - Key: Name
+          Value: Jason Kelly Lab Portfolio 1 Project
