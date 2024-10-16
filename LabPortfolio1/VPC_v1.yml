@@ -1,4 +1,4 @@
-Description: This template creates a vpc
+Description: This template creates a vpc with an Internet Gateway
 
 Resources:
   VPC:
@@ -7,3 +7,16 @@ Resources:
       Tags:
         - Key: Name
           Value: Jason Kelly Lab Portfolio 1 Project
+          
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties: 
+      Tags:
+        - Key: Name
+          Value: J.Kelly Lab Portfolio 1 IGW
+   
+   VPCGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      InternetGatewayId: !Ref InternetGateway
+      VpcId: !Ref VPC
