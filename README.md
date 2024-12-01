@@ -10,6 +10,8 @@ Student No. L00194486
 
 This readme is to provide a guide on the steps taken to try and best complete this project.
 
+**Steps**
+
 1. Create VPC
 2. Create Internet Gateway
 3. Attach the Internet Gateway to the VPC
